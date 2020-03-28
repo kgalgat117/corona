@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { API } from './../services'
+import { API } from '../services'
 
 function WorldData() {
 
