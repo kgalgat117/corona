@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Input, Badge } from 'reactstrap';
 import { API } from './../services'
 
-function AddCountryModalBody() {
+function AddCountryModalBody(props) {
 
     var localStorageCountry = localStorage.getItem('country')
     var localStorageCountryArray = []
@@ -11,6 +11,7 @@ function AddCountryModalBody() {
     }
     const [userCountries, setUserCountries] = useState(localStorageCountryArray)
     const [countries, setCountries] = useState([])
+    const [refreshTableFlag, setRefreshTableFlag] = useState(false)
 
     useEffect(() => {
         API.getCountries().then(response => {
@@ -34,6 +35,7 @@ function AddCountryModalBody() {
                 tempArray = tempArray.concat(userCountries)
                 tempArray.push(value)
                 setUserCountries(tempArray)
+                setRefreshTableFlag(true)
             }
         }
     }
@@ -44,6 +46,7 @@ function AddCountryModalBody() {
         temp.splice(index, 1)
         setUserCountries(temp)
         localStorage.setItem('country', temp.toString())
+        setRefreshTableFlag(true)
     }
 
     return (

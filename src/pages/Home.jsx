@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { WorldData, CountryTable, AddCountryModalBody } from './../components'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 function Home() {
 
-    const [addCountryModalState, setAddCountryModalState] = useState(true);
+    const [addCountryModalState, setAddCountryModalState] = useState(false);
     const toggleAddCountryModalState = () => setAddCountryModalState(!addCountryModalState);
 
     return (
@@ -14,7 +14,9 @@ function Home() {
                 <div>Countries</div>
                 <div onClick={toggleAddCountryModalState}>+</div>
             </div>
-            <CountryTable />
+            {!addCountryModalState &&
+                <CountryTable />
+            }
             <Modal isOpen={addCountryModalState} toggle={toggleAddCountryModalState}>
                 <ModalHeader toggle={toggleAddCountryModalState}>Add Country</ModalHeader>
                 <ModalBody>

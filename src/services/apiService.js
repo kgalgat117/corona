@@ -11,6 +11,10 @@ API.getCountries = () => {
     return axios.get(`${API_URL}/api/countries`)
 }
 
+API.getCountryData = (country) => {
+    return axios.get(`${API_URL}/api/countries/${country}`)
+}
+
 export {
     API
 }
