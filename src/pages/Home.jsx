@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { WorldData, CountryTable, AddCountryModalBody } from './../components'
+import { WorldData, CountryTable, AddCountryModalBody, AppHeader, AppFooter } from './../components'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 function Home() {
@@ -8,9 +8,10 @@ function Home() {
     const toggleAddCountryModalState = () => setAddCountryModalState(!addCountryModalState);
 
     return (
-        <div className="container-fluid ">
+        <div className="container-fluid pr-0 pl-0">
+            <AppHeader />
             <WorldData />
-            <div className="row pt-3 " style={{ display: "flex", justifyContent: "space-around" }}>
+            <div className="row pt-3" style={{ display: "flex", justifyContent: "space-around" }}>
                 <div>Countries</div>
                 <div onClick={toggleAddCountryModalState}>+</div>
             </div>
@@ -23,6 +24,7 @@ function Home() {
                     <AddCountryModalBody />
                 </ModalBody>
             </Modal>
+            <AppFooter />
         </div>
     )
 }

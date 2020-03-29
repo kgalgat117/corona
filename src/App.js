@@ -10,7 +10,7 @@ import { Home } from './pages'
 function App() {
 
   return (
-    <div className="App container-fluid">
+    <div className="App container-fluid pr-0 pl-0">
       <Router>
         <Switch>
           <Route exact path="/">
